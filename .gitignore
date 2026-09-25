@@ -1,0 +1,16 @@
+.venv/
+.cache/
+.agents/
+.codex/
+.openai/
+__pycache__/
+*.pyc
+.env
+.env.*
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.gguf
+*.onnx

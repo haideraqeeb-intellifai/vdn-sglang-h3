@@ -1,0 +1,134 @@
+[
+  {
+    "path": "audio_vae/diffusion_pytorch_model.safetensors",
+    "size_bytes": 605429340
+  },
+  {
+    "path": "text_encoder/model-00001-of-00014.safetensors",
+    "size_bytes": 4932328944
+  },
+  {
+    "path": "text_encoder/model-00002-of-00014.safetensors",
+    "size_bytes": 4875990528
+  },
+  {
+    "path": "text_encoder/model-00003-of-00014.safetensors",
+    "size_bytes": 4875990552
+  },
+  {
+    "path": "text_encoder/model-00004-of-00014.safetensors",
+    "size_bytes": 4875990584
+  },
+  {
+    "path": "text_encoder/model-00005-of-00014.safetensors",
+    "size_bytes": 4875990584
+  },
+  {
+    "path": "text_encoder/model-00006-of-00014.safetensors",
+    "size_bytes": 4875990584
+  },
+  {
+    "path": "text_encoder/model-00007-of-00014.safetensors",
+    "size_bytes": 4875990584
+  },
+  {
+    "path": "text_encoder/model-00008-of-00014.safetensors",
+    "size_bytes": 4875990584
+  },
+  {
+    "path": "text_encoder/model-00009-of-00014.safetensors",
+    "size_bytes": 4875990584
+  },
+  {
+    "path": "text_encoder/model-00010-of-00014.safetensors",
+    "size_bytes": 4875990584
+  },
+  {
+    "path": "text_encoder/model-00011-of-00014.safetensors",
+    "size_bytes": 4875990584
+  },
+  {
+    "path": "text_encoder/model-00012-of-00014.safetensors",
+    "size_bytes": 4875990584
+  },
+  {
+    "path": "text_encoder/model-00013-of-00014.safetensors",
+    "size_bytes": 4875990584
+  },
+  {
+    "path": "text_encoder/model-00014-of-00014.safetensors",
+    "size_bytes": 3270697008
+  },
+  {
+    "path": "transformer/diffusion_pytorch_model-00001-of-00014.safetensors",
+    "size_bytes": 4825958704
+  },
+  {
+    "path": "transformer/diffusion_pytorch_model-00002-of-00014.safetensors",
+    "size_bytes": 4702158032
+  },
+  {
+    "path": "transformer/diffusion_pytorch_model-00003-of-00014.safetensors",
+    "size_bytes": 4933368192
+  },
+  {
+    "path": "transformer/diffusion_pytorch_model-00004-of-00014.safetensors",
+    "size_bytes": 4567069608
+  },
+  {
+    "path": "transformer/diffusion_pytorch_model-00005-of-00014.safetensors",
+    "size_bytes": 4702158080
+  },
+  {
+    "path": "transformer/diffusion_pytorch_model-00006-of-00014.safetensors",
+    "size_bytes": 4933368232
+  },
+  {
+    "path": "transformer/diffusion_pytorch_model-00007-of-00014.safetensors",
+    "size_bytes": 4567069608
+  },
+  {
+    "path": "transformer/diffusion_pytorch_model-00008-of-00014.safetensors",
+    "size_bytes": 4702158080
+  },
+  {
+    "path": "transformer/diffusion_pytorch_model-00009-of-00014.safetensors",
+    "size_bytes": 4933368232
+  },
+  {
+    "path": "transformer/diffusion_pytorch_model-00010-of-00014.safetensors",
+    "size_bytes": 4567069608
+  },
+  {
+    "path": "transformer/diffusion_pytorch_model-00011-of-00014.safetensors",
+    "size_bytes": 4702158080
+  },
+  {
+    "path": "transformer/diffusion_pytorch_model-00012-of-00014.safetensors",
+    "size_bytes": 4933368232
+  },
+  {
+    "path": "transformer/diffusion_pytorch_model-00013-of-00014.safetensors",
+    "size_bytes": 4567069608
+  },
+  {
+    "path": "transformer/diffusion_pytorch_model-00014-of-00014.safetensors",
+    "size_bytes": 4644161920
+  },
+  {
+    "path": "transformer/sglang_rope_inv_freq.safetensors",
+    "size_bytes": 144
+  },
+  {
+    "path": "transformer/sglang_vdn_linear_branch.safetensors",
+    "size_bytes": 4279428112
+  },
+  {
+    "path": "video_vae/model.safetensors",
+    "size_bytes": 10415548320
+  },
+  {
+    "path": "video_vae/source/model.safetensors",
+    "size_bytes": 10415548320
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "config": {
+    "alpha": 64,
+    "rank": 64,
+    "targets": [
+      "attn.orig.to_k",
+      "attn.orig.to_out.0",
+      "attn.orig.to_q",
+      "attn.orig.to_v",
+      "token_refiner.refiner_blocks.*.attn.to_k",
+      "token_refiner.refiner_blocks.*.attn.to_out.0",
+      "token_refiner.refiner_blocks.*.attn.to_q",
+      "token_refiner.refiner_blocks.*.attn.to_v"
+    ]
+  },
+  "type": "lora",
+  "version": 1
+}

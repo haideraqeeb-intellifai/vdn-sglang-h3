@@ -1,0 +1,197 @@
+[
+  {
+    "repo_id": "OpenVDN/vdn-minimax-h3",
+    "revision": "ec875b5bde3832ff72511b079c70ea18b277c339",
+    "url": "https://huggingface.co/OpenVDN/vdn-minimax-h3/tree/ec875b5bde3832ff72511b079c70ea18b277c339",
+    "cached_weight_files": [
+      {
+        "path": "h3-base/audio_vae/diffusion_pytorch_model.safetensors",
+        "size_bytes": 605429340,
+        "sha256_from_hf_cache": "f70edfc8ed89e3ed98a4829dfda9d88d101cfbcac3e99dbc09b0e401bcdcf8e4"
+      },
+      {
+        "path": "h3-base/transformer/diffusion_pytorch_model-00001-of-00014.safetensors",
+        "size_bytes": 4825958704,
+        "sha256_from_hf_cache": "cd625eb8fb67fb0921e955952c9b718307c93d6656f7eadf1bfd8064aeeabf1d"
+      },
+      {
+        "path": "h3-base/transformer/diffusion_pytorch_model-00002-of-00014.safetensors",
+        "size_bytes": 4702158032,
+        "sha256_from_hf_cache": "6d948ca9be609363a9adc0a829aa4c43d0edce94694704327ede5f571ce3d258"
+      },
+      {
+        "path": "h3-base/transformer/diffusion_pytorch_model-00003-of-00014.safetensors",
+        "size_bytes": 4933368192,
+        "sha256_from_hf_cache": "c572425eeff4463c576ffcd4fb6cd723b23258b6a2f9aa1b8c6d51be02c39622"
+      },
+      {
+        "path": "h3-base/transformer/diffusion_pytorch_model-00004-of-00014.safetensors",
+        "size_bytes": 4567069608,
+        "sha256_from_hf_cache": "2e9f2b6a6e3f3e0ac9f936a09eeaf7d40821983e69a40cea7f4c810d9234e5bb"
+      },
+      {
+        "path": "h3-base/transformer/diffusion_pytorch_model-00005-of-00014.safetensors",
+        "size_bytes": 4702158080,
+        "sha256_from_hf_cache": "adc17061db3f4889e84549e221e3f104d801c085918562217dca32d5456fc703"
+      },
+      {
+        "path": "h3-base/transformer/diffusion_pytorch_model-00006-of-00014.safetensors",
+        "size_bytes": 4933368232,
+        "sha256_from_hf_cache": "4be0aa53490c4c37be342ca08c0f7d8590e7c1c5d5845cbed780d84faa3b7782"
+      },
+      {
+        "path": "h3-base/transformer/diffusion_pytorch_model-00007-of-00014.safetensors",
+        "size_bytes": 4567069608,
+        "sha256_from_hf_cache": "6169d467b98dacbcd68f067920e7d1dbb8d22ff46761cdc6b4dbd0b0b741d3fd"
+      },
+      {
+        "path": "h3-base/transformer/diffusion_pytorch_model-00008-of-00014.safetensors",
+        "size_bytes": 4702158080,
+        "sha256_from_hf_cache": "16ffda0c8bf9228cbfb11451201a406207b01e1ba92720d96f63bf8dd7092115"
+      },
+      {
+        "path": "h3-base/transformer/diffusion_pytorch_model-00009-of-00014.safetensors",
+        "size_bytes": 4933368232,
+        "sha256_from_hf_cache": "b70151d67276e182dddada11ed1da1e90f0b44976328f97423265d5bcc868d09"
+      },
+      {
+        "path": "h3-base/transformer/diffusion_pytorch_model-00010-of-00014.safetensors",
+        "size_bytes": 4567069608,
+        "sha256_from_hf_cache": "7936d5fa42d8f466333dd670b4052fe518a9994986e2f28867b8cd4bfc03d396"
+      },
+      {
+        "path": "h3-base/transformer/diffusion_pytorch_model-00011-of-00014.safetensors",
+        "size_bytes": 4702158080,
+        "sha256_from_hf_cache": "bb9fd61118eb0bbc39f2aef01828d6c9aa53df3a3e712fd443702179dd5e2185"
+      },
+      {
+        "path": "h3-base/transformer/diffusion_pytorch_model-00012-of-00014.safetensors",
+        "size_bytes": 4933368232,
+        "sha256_from_hf_cache": "1ae1564c3857f545bf04d8b95006d2154f0dd148297dc701ebe6ca9147ac6a7b"
+      },
+      {
+        "path": "h3-base/transformer/diffusion_pytorch_model-00013-of-00014.safetensors",
+        "size_bytes": 4567069608,
+        "sha256_from_hf_cache": "1045d351c2e2246da8e9fe3ad03007e00576e91cf8400ab1565a16b1bd6a3ab9"
+      },
+      {
+        "path": "h3-base/transformer/diffusion_pytorch_model-00014-of-00014.safetensors",
+        "size_bytes": 4644161920,
+        "sha256_from_hf_cache": "1fc77284194df8848ecdbafb09db36cb9d682745cfa25f5d312d36f8b9e7367b"
+      },
+      {
+        "path": "h3-base/vae/diffusion_pytorch_model-00001-of-00003.safetensors",
+        "size_bytes": 5061033024,
+        "sha256_from_hf_cache": "a2379dee247629f040499585998089281bce36f30b01e1985b21a8e2743e825c"
+      },
+      {
+        "path": "h3-base/vae/diffusion_pytorch_model-00002-of-00003.safetensors",
+        "size_bytes": 4955986528,
+        "sha256_from_hf_cache": "4dd39c5b960ad0c45b45eb6fa8967979a1c273cb3b0239b287ea2d06f82bb356"
+      },
+      {
+        "path": "h3-base/vae/diffusion_pytorch_model-00003-of-00003.safetensors",
+        "size_bytes": 398539336,
+        "sha256_from_hf_cache": "d37bfb9729416229e84a0652f51245a5f9ccfbcf9585ce6d81bc4c4a4e510227"
+      },
+      {
+        "path": "stage-dmd-step-250/adapters/default/adapter_model.safetensors",
+        "size_bytes": 334026912,
+        "sha256_from_hf_cache": "116fce06b5007514c2f8eb5d09b3b630c11004bdf3091d5bb1a8c61dacd38a00"
+      },
+      {
+        "path": "stage-dmd-step-250/adapters/turbo/adapter_model.safetensors",
+        "size_bytes": 851452696,
+        "sha256_from_hf_cache": "30fef67774e2cf65739755b60168bdb1fc95467303926308a34bf2315e877cb3"
+      },
+      {
+        "path": "stage-dmd-step-250/linear_branch/model.safetensors",
+        "size_bytes": 4279428112,
+        "sha256_from_hf_cache": "cde6cdce989ccebe3cb14d79e0036404aae03a781301888e17189215701989be"
+      }
+    ]
+  },
+  {
+    "repo_id": "MiniMaxAI/MiniMax-H3",
+    "revision": "42ed227ee7df40d41602854ae760620d6eb651fe",
+    "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3/tree/42ed227ee7df40d41602854ae760620d6eb651fe",
+    "cached_weight_files": [
+      {
+        "path": "text_encoder/model-00001-of-00014.safetensors",
+        "size_bytes": 4932328944,
+        "sha256_from_hf_cache": "be105368592efd8d8041c652acf7a152562f3cb015fa872252247174ce4df95b"
+      },
+      {
+        "path": "text_encoder/model-00002-of-00014.safetensors",
+        "size_bytes": 4875990528,
+        "sha256_from_hf_cache": "8a641ec7bff8bec3efcc440ed4d199d472e70986f93539c09f1e764ce448e3ba"
+      },
+      {
+        "path": "text_encoder/model-00003-of-00014.safetensors",
+        "size_bytes": 4875990552,
+        "sha256_from_hf_cache": "965e5608ba13ca091d1f3f5c913ac785149d8694b3860c8593e93133af8b3aa5"
+      },
+      {
+        "path": "text_encoder/model-00004-of-00014.safetensors",
+        "size_bytes": 4875990584,
+        "sha256_from_hf_cache": "4f552be5b7390fb92b0a5edb16460ad022b0083db8cd39d7e2dd532657ba5122"
+      },
+      {
+        "path": "text_encoder/model-00005-of-00014.safetensors",
+        "size_bytes": 4875990584,
+        "sha256_from_hf_cache": "af142eae5e441bcb4ab63f48aabb12845670e403fdea51f6c1961ca72e3a3d43"
+      },
+      {
+        "path": "text_encoder/model-00006-of-00014.safetensors",
+        "size_bytes": 4875990584,
+        "sha256_from_hf_cache": "b965cefca4793d6a4c228adacce72226b77272a35a34231d2e81baff902ed119"
+      },
+      {
+        "path": "text_encoder/model-00007-of-00014.safetensors",
+        "size_bytes": 4875990584,
+        "sha256_from_hf_cache": "68886b3463718c2a4bb6509aaec1126820284c5079480da588adf11da43bea46"
+      },
+      {
+        "path": "text_encoder/model-00008-of-00014.safetensors",
+        "size_bytes": 4875990584,
+        "sha256_from_hf_cache": "0f6e93da798541751e9e59142bd6458af0418ff2c80b7d6d9038425d2ce365ad"
+      },
+      {
+        "path": "text_encoder/model-00009-of-00014.safetensors",
+        "size_bytes": 4875990584,
+        "sha256_from_hf_cache": "005b3f45596a95f9c183872a0b00027445e23c9ee73451abfd493e6eb47fb5c5"
+      },
+      {
+        "path": "text_encoder/model-00010-of-00014.safetensors",
+        "size_bytes": 4875990584,
+        "sha256_from_hf_cache": "6227236eefaf57a532d917fe8cdfa715b99c8686230bb6d2f5bfc7835e89c761"
+      },
+      {
+        "path": "text_encoder/model-00011-of-00014.safetensors",
+        "size_bytes": 4875990584,
+        "sha256_from_hf_cache": "053d6b1cabae82059daecde3a09a86daa905d161b0d417a530356a4dc3bece8d"
+      },
+      {
+        "path": "text_encoder/model-00012-of-00014.safetensors",
+        "size_bytes": 4875990584,
+        "sha256_from_hf_cache": "76905091eb0bd80cdb8db051cadfbacaf460ced61f8114b09ad8fc6d84216c5b"
+      },
+      {
+        "path": "text_encoder/model-00013-of-00014.safetensors",
+        "size_bytes": 4875990584,
+        "sha256_from_hf_cache": "7d7822f73c131065130129315c4c16d907af08d2249a19cee59dde0ac256ab23"
+      },
+      {
+        "path": "text_encoder/model-00014-of-00014.safetensors",
+        "size_bytes": 3270697008,
+        "sha256_from_hf_cache": "90671bb802e6409ab1974672aff35dc8d5e3c9accd035cb64c4417e30b2b7eb2"
+      }
+    ]
+  },
+  {
+    "repo_id": "kevin-mi/VDN-H3-overlay",
+    "revision": "7de18275dddfe59da36a234e222bcdd274963bc3",
+    "url": "https://huggingface.co/kevin-mi/VDN-H3-overlay/tree/7de18275dddfe59da36a234e222bcdd274963bc3",
+    "cached_weight_files": []
+  }
+]

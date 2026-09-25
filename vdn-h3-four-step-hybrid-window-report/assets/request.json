@@ -1,0 +1,17 @@
+{
+  "model": "OpenVDN/vdn-minimax-h3",
+  "prompt": "__PROMPT_REPLACED_BY_RUNNER__",
+  "seconds": 10,
+  "task": "t2va",
+  "conditions": [],
+  "target": {
+    "short_edge": 736,
+    "aspect_ratio": "23:40",
+    "duration_seconds": 10.125
+  },
+  "num_outputs_per_prompt": 1,
+  "num_inference_steps": 5,
+  "flow_shift": 12.0,
+  "audio_flow_shift": 3.0,
+  "seed": 42
+}

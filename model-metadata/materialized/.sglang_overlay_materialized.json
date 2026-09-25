@@ -1,0 +1,8 @@
+{
+  "materializer_version": "v1",
+  "overlay_fingerprint": "41b00cecdf03a3951ae8b491999ee5037e9c9455fb5e6e503755dcece0af1c5d",
+  "overlay_repo_id": "kevin-mi/VDN-H3-overlay",
+  "overlay_revision": "7de18275dddfe59da36a234e222bcdd274963bc3",
+  "source_dir": "/home/raqeeb/.cache/huggingface/hub/models--OpenVDN--vdn-minimax-h3/snapshots/ec875b5bde3832ff72511b079c70ea18b277c339",
+  "source_model_id": "OpenVDN/vdn-minimax-h3"
+}

@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Reproducible VDN-H3 four-denoising-step benchmark using hybrid-window H3 attention.">
+  <title>VDN-H3 · 4 steps · hybrid-window attention · benchmark</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23045750'/%3E%3Cpath d='M15 18h8l9 27 9-27h8L36 52h-8z' fill='white'/%3E%3C/svg%3E">
+  <style>
+    :root{color-scheme:light;--ink:#142124;--muted:#5c6d71;--line:#d8e3e1;--accent:#056f63;--accent-dark:#064e48;--accent-soft:#e5f4f0;--paper:#f3f7f6;--warning:#8a4b08;--warning-bg:#fff5e8;--warning-line:#e8c995;--shadow:0 18px 55px rgba(22,55,51,.06)}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    main{max-width:1160px;margin:auto;padding:48px 28px 64px}
+    header{position:relative;border-top:4px solid var(--accent);padding:24px 0 4px;margin-bottom:28px}
+    .eyebrow{font-size:12px;font-weight:760;letter-spacing:.15em;text-transform:uppercase;color:var(--accent)}
+    h1{max-width:980px;font-size:clamp(34px,5vw,58px);letter-spacing:-.045em;line-height:1.08;margin:10px 0 16px}
+    h2{font-size:23px;letter-spacing:-.02em;line-height:1.25;margin:0 0 20px}
+    h3{font-size:16px;margin:24px 0 8px}
+    p{margin:0 0 16px}
+    .intro{max-width:790px;font-size:18px;color:#26383c}
+    .badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:19px}
+    .badge{display:inline-flex;align-items:center;border:1px solid #9dd0c4;background:var(--accent-soft);color:#125b51;border-radius:999px;padding:5px 12px;font-size:12px;font-weight:700}
+    .badge.warn{border-color:var(--warning-line);background:var(--warning-bg);color:var(--warning)}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:28px 0}
+    .stat{background:#fff;border:1px solid var(--line);padding:20px 21px;border-radius:12px;box-shadow:var(--shadow)}
+    .stat strong{display:block;font-size:30px;letter-spacing:-.035em;line-height:1.2;font-variant-numeric:tabular-nums}
+    .stat span{display:block;color:var(--muted);font-size:13px;margin-top:5px}
+    .grid{display:grid;grid-template-columns:minmax(280px,.85fr) minmax(0,1.3fr);gap:24px;align-items:start}
+    section{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px;margin-bottom:24px;min-width:0;box-shadow:var(--shadow)}
+    video{display:block;width:100%;max-height:680px;background:#101414;border-radius:8px}
+    .video-caption{font-size:13px;margin:14px 0 0}
+    a{color:var(--accent);text-underline-offset:3px;text-decoration-thickness:1px}
+    a:hover{color:var(--accent-dark)}
+    table{border-collapse:collapse;width:100%;font-size:14px;margin-bottom:16px}
+    th,td{text-align:left;vertical-align:top;padding:11px 8px;border-bottom:1px solid var(--line);overflow-wrap:anywhere}
+    th{font-weight:650}
+    tbody th{padding-left:0}
+    thead th{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
+    .timings td{white-space:nowrap;font-variant-numeric:tabular-nums}
+    .timings tbody tr:first-child{background:#edf8f5}
+    .note,.muted,small{color:var(--muted)}
+    .note{overflow-wrap:anywhere;font-size:13px}
+    .callout{border:1px solid var(--warning-line);background:var(--warning-bg);border-radius:10px;padding:18px 19px;margin:0 0 24px;color:#5f390e}
+    .callout strong{color:#693b08}
+    pre{white-space:pre-wrap;overflow-wrap:anywhere;background:var(--paper);border:1px solid var(--line);padding:18px;border-radius:8px;font:12px/1.72 ui-monospace,SFMono-Regular,Consolas,monospace}
+    details summary{cursor:pointer;font-weight:700;padding:5px 0}
+    details[open] summary{margin-bottom:12px}
+    .downloads{display:flex;flex-wrap:wrap;gap:10px}
+    .downloads a{font:12px ui-monospace,SFMono-Regular,Consolas,monospace;border:1px solid var(--line);border-radius:6px;padding:9px 10px;background:var(--paper)}
+    .provenance{font:12px/1.75 ui-monospace,SFMono-Regular,Consolas,monospace;overflow-wrap:anywhere}
+    .checklist{list-style:none;padding:0;margin:0 0 16px;display:grid;gap:8px}
+    .checklist li{position:relative;padding-left:25px}
+    .checklist li:before{content:"✓";position:absolute;left:0;color:var(--accent);font-weight:850}
+    footer{font-size:12px;color:var(--muted);padding-top:8px}
+    @media(max-width:760px){main{padding:25px 16px 42px}.stats{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}section{padding:20px}.stat strong{font-size:25px}h1{font-size:36px}.timings{font-size:13px}.timings th,.timings td{padding:9px 5px}}
+    @media(max-width:430px){.stats{grid-template-columns:1fr}.stat{padding:17px}.timings td{white-space:normal}}
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="eyebrow">MiniMax H3 · Reproducible run record</div>
+    <h1>VDN-H3 · 4 steps · hybrid-window attention</h1>
+    <p class="intro">The reference report’s vertical podcast prompt, seed, canvas, frame count, and duration, rerun with OpenVDN’s H3 model and SGLang’s model-specific hybrid attention. One complete warm-up was followed by one measured generation.</p>
+    <div class="badges">
+      <span class="badge">Completed · media verified</span>
+      <span class="badge">No SageAttention</span>
+      <span class="badge warn">BF16 placement adaptation</span>
+    </div>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><strong>128.44 s</strong><span>Measured full generation</span></div>
+    <div class="stat"><strong>103.99 s</strong><span>Measured denoising</span></div>
+    <div class="stat"><strong>4 steps</strong><span>Seed 42 · guidance 1.0</span></div>
+    <div class="stat"><strong>736 × 1280</strong><span>10.125 s · 24 FPS · stereo audio</span></div>
+  </div>
+
+  <div class="callout"><strong>Comparison boundary.</strong> The model and <code>hybrid_window_attn_h3</code> attention backend match the linked SGLang configuration. Its FP8/MXFP8 load path was attempted first but exceeded this single RTX 5090’s 32 GB before layerwise offload activated. The completed benchmark therefore uses BF16 storage with layerwise offload. Treat model/attention and prompt/output comparisons as valid; do not treat this as an FP8 or 8×B200 performance reproduction.</div>
+
+  <div class="grid">
+    <div>
+      <section>
+        <h2>Measured output</h2>
+        <video controls playsinline preload="metadata" poster="assets/poster.jpg">
+          <source src="assets/measured.mp4" type="video/mp4">
+          Your browser does not support embedded video.
+        </video>
+        <p class="video-caption"><a href="assets/measured.mp4" download>Download measured video</a> · <a href="assets/warmup.mp4" download>Download warm-up video</a></p>
+        <p class="note">Native SGLang output, untrimmed. Full audio/video decoding and container metadata were verified. Dialogue accuracy and lip-sync quality were not scored.</p>
+      </section>
+
+      <section>
+        <h2>Configuration</h2>
+        <table>
+          <tbody>
+            <tr><th>Model</th><td>OpenVDN/vdn-minimax-h3</td></tr>
+            <tr><th>Sampling</th><td>5 sigma-grid points = exactly 4 denoiser forwards</td></tr>
+            <tr><th>Seed</th><td>42</td></tr>
+            <tr><th>Resolution</th><td>736 × 1280 (23:40)</td></tr>
+            <tr><th>Frames / rate / duration</th><td>243 / 24 FPS / 10.125 s</td></tr>
+            <tr><th>Guidance</th><td>1.0; embedded guidance 6.0</td></tr>
+            <tr><th>Video / audio flow shift</th><td>12.0 / 3.0</td></tr>
+            <tr><th>Attention</th><td>hybrid_window_attn_h3</td></tr>
+            <tr><th>Hybrid window</th><td>chunk 5 · radius 1 · both anchor frames</td></tr>
+            <tr><th>SageAttention</th><td>Not used</td></tr>
+            <tr><th>Completed precision</th><td>BF16</td></tr>
+            <tr><th>Memory management</th><td>Layerwise offload for DiT, text encoder, and video VAE</td></tr>
+            <tr><th>Explicit torch.compile</th><td>Disabled</td></tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+
+    <div>
+      <section>
+        <h2>Benchmark timings</h2>
+        <table class="timings">
+          <thead><tr><th>Component</th><th>Warm-up</th><th>Measured</th></tr></thead>
+          <tbody>
+            <tr><th>Server end-to-end</th><td>158.717 s</td><td>128.439 s</td></tr>
+            <tr><th>Client end-to-end</th><td>160.504 s</td><td>130.249 s</td></tr>
+            <tr><th>Text encoding</th><td>2.018 s</td><td>0.808 s</td></tr>
+            <tr><th>Denoising</th><td>128.830 s</td><td>103.988 s</td></tr>
+            <tr><th>Decode and output</th><td>27.467 s</td><td>23.086 s</td></tr>
+          </tbody>
+        </table>
+        <p class="note">Server timings come from SGLang’s synchronized stage measurements. Client timings include request polling and downloading the completed MP4. Stage times should be compared by row and not mixed with the client measurement.</p>
+        <p><strong>1.892</strong> output frames per second · <strong>12.69×</strong> output duration in generation time.</p>
+        <p class="note">There is one warm-up and one measured sample. Timing variance is unknown. The warm-up also includes first-use CUDA kernel compilation.</p>
+      </section>
+
+      <section>
+        <h2>GPU isolation &amp; memory</h2>
+        <p><strong>RTX 5090 · 32 GB.</strong> SGLang reported the generation peaks below. After server shutdown, the device returned to 2 MiB used with no compute process.</p>
+        <table>
+          <thead><tr><th>Memory measure</th><th>Warm-up</th><th>Measured</th></tr></thead>
+          <tbody><tr><th>SGLang peak memory</th><td>23,220 MiB</td><td>27,740 MiB</td></tr></tbody>
+        </table>
+        <details>
+          <summary>GPU after process exit</summary>
+          <pre>name, memory.used [MiB], utilization.gpu [%]
+NVIDIA GeForce RTX 5090, 2 MiB, 0 %
+Compute processes: none</pre>
+        </details>
+        <p class="note">No continuous external GPU sampling was retained, so these runtime peaks are not directly equivalent to the reference report’s sampled device peaks.</p>
+      </section>
+
+      <section>
+        <h2>Verification &amp; method</h2>
+        <ul class="checklist">
+          <li>Both MP4 files passed complete video and audio decoding.</li>
+          <li>Both contain 243 H.264 frames at 736 × 1280 and 24 FPS.</li>
+          <li>Both contain 32 kHz stereo AAC audio and last exactly 10.125 seconds.</li>
+          <li>Runtime progress confirmed exactly four denoiser forwards per generation.</li>
+          <li>Runtime selected hybrid_window_attn_h3; SageAttention was not installed in the execution path.</li>
+        </ul>
+        <p>Decoded video hashes match between runs: <strong>yes</strong>. Decoded audio hashes match: <strong>no</strong>.</p>
+        <p class="note">The same seed was used for both runs. Deterministic CUDA algorithms were not enforced. The matching decoded video hash establishes bit-identical decoded video for these two samples; audio nondeterminism was not investigated.</p>
+      </section>
+    </div>
+  </div>
+
+  <section>
+    <h2>Hybrid-window H3 execution</h2>
+    <p>The denoiser logged the VDN-H3 hybrid path with 72 latent frames, 920 tokens per frame, 413 text tokens, chunk size 5, radius 1, and both anchor frames. The backend combines local exact softmax attention with the VDN linear branch; no SageAttention dispatcher participated.</p>
+    <table>
+      <thead><tr><th>Runtime fact</th><th>Warm-up</th><th>Measured</th></tr></thead>
+      <tbody>
+        <tr><th>Attention backend</th><td>hybrid_window_attn_h3</td><td>hybrid_window_attn_h3</td></tr>
+        <tr><th>Denoiser forwards</th><td>4</td><td>4</td></tr>
+        <tr><th>Denoising time</th><td>128.830 s</td><td>103.988 s</td></tr>
+        <tr><th>SageAttention</th><td>Not used</td><td>Not used</td></tr>
+      </tbody>
+    </table>
+    <p class="note">The released checkpoint metadata specifies an eight-evaluation turbo schedule. This four-forward run required a local sampling-guard change and is outside the checkpoint’s published training and validation schedule; quality equivalence is not claimed.</p>
+  </section>
+
+  <section>
+    <h2>Comparison notes</h2>
+    <p>This page intentionally mirrors the linked benchmark report’s headline measures—full generation, denoising, steps, dimensions, media verification, prompt, seed, and warm-up/measured split—so the two pages can be compared side by side.</p>
+    <table>
+      <thead><tr><th>Comparable dimension</th><th>This report</th><th>Interpretation</th></tr></thead>
+      <tbody>
+        <tr><th>Prompt / seed / output shape</th><td>Matched</td><td>Directly comparable</td></tr>
+        <tr><th>Denoiser forwards</th><td>4</td><td>Directly comparable count</td></tr>
+        <tr><th>Attention</th><td>VDN hybrid-window H3</td><td>Different algorithm from SageAttention</td></tr>
+        <tr><th>Model family</th><td>OpenVDN/vdn-minimax-h3</td><td>Different checkpoint and training recipe</td></tr>
+        <tr><th>Precision</th><td>BF16</td><td>Does not reproduce the tweet’s FP8 benchmark</td></tr>
+        <tr><th>Timing instrumentation</th><td>SGLang stage timers</td><td>Close conceptually; not the same runner</td></tr>
+      </tbody>
+    </table>
+    <p><a href="https://s3.renderplatform.com/agent-assets/Raqeeb/larryvrh-h3-pruned-int8-convrot-v4-600-4steps-sage/index.html">Open the reference report</a></p>
+  </section>
+
+  <section>
+    <h2>Exact generation prompt</h2>
+    <details>
+      <summary>Read the full prompt</summary>
+      <pre>integrated_multimodal_description: A polished vertical social-media podcast advertisement in a warm modern studio with wooden shelves, soft amber practical lights, two beige lounge chairs, and bright pink broadcast microphones. Keep both hosts' faces, clothing, hair, and the studio layout consistent across all shots.
+
+Shot 1, 0.0-3.5 seconds: Medium close-up of a confident Black woman with long straight black hair, black rectangular glasses, a fitted white top, and blue jeans, seated naturally beside the pink microphone. She gestures casually and says &lt;d&gt;[English] Have you tried that late-night taco place everyone keeps posting?&lt;/d&gt;
+
+Shot 2, 3.5-6.5 seconds: Clean cinematic food B-roll, an overhead close-up of black-gloved hands plating two colorful street tacos on brown paper, warm tortillas, grilled filling, purple cabbage, cilantro, lime, and glossy red salsa. Visible steam and crisp, realistic food texture. The second host begins speaking off camera: &lt;d&gt;[English] Yes. Fresh tortillas, incredible flavor, and honestly much better than I expected.&lt;/d&gt;
+
+Shot 3, 6.5-10.0 seconds: Cut back to the same podcast studio, medium close-up of the second host, a light-skinned brunette woman with shoulder-length wavy hair wearing a charcoal ribbed top, seated in the opposite beige chair. She finishes the sentence with natural conversational timing while the first host listens just off camera.
+
+Realistic skin, restrained hand gestures, accurate anatomy, stable microphones, natural blinking and lip synchronization, native-looking UGC pacing. Do not render subtitles, logos, watermarks, signs, or on-screen text.
+
+overall_soundscape: Clean close-mic podcast dialogue with two distinct natural female voices, subtle quiet studio room tone, and a brief soft tortilla sizzle and plating sound during the taco B-roll. Dialogue stays continuous across the visual cut and remains easy to understand.
+
+non_diegetic_music: None.</pre>
+    </details>
+    <a href="assets/prompt.txt" download>Download prompt</a>
+  </section>
+
+  <section>
+    <h2>Evidence &amp; reproducibility</h2>
+    <p class="provenance">Model revision: ec875b5bde3832ff72511b079c70ea18b277c339<br>
+Overlay revision: 7de18275dddfe59da36a234e222bcdd274963bc3<br>
+Overlay fingerprint: 41b00cecdf03a3951ae8b491999ee5037e9c9455fb5e6e503755dcece0af1c5d<br>
+SGLang: 0.5.20<br>
+Prompt SHA-256: 3d3077f76c422a2593e079f5f7b1df8c69395b4496069328a9761eaecc223ba7<br>
+Measured MP4 SHA-256: 17882d9db644f74d1e4ea49e6ca102283cb6b2561fe8c46647804111bd9b17b7<br>
+Warm-up MP4 SHA-256: c08ad45a1f59dbb4e68936bd7e3b3f4584cd27c67b416955e94088bba3224d64</p>
+    <div class="downloads">
+      <a href="assets/report.json" download>report.json</a>
+      <a href="assets/verification.json" download>verification.json</a>
+      <a href="assets/request.json" download>request.json</a>
+      <a href="assets/launch-command.txt" download>launch-command.txt</a>
+      <a href="assets/submit.py" download>submit.py</a>
+      <a href="assets/measured-status.json" download>measured-status.json</a>
+      <a href="assets/warmup-status.json" download>warmup-status.json</a>
+      <a href="assets/measured-client-timing.json" download>measured-client-timing.json</a>
+      <a href="assets/warmup-client-timing.json" download>warmup-client-timing.json</a>
+    </div>
+  </section>
+
+  <footer>Generated from saved SGLang benchmark measurements · vdn-h3-four-step-hybrid-window · <a href="https://github.com/OpenVDN/vdn-minimax-h3">OpenVDN repository</a> · <a href="https://x.com/sgl_project/status/2099536367508402480">SGLang configuration post</a></footer>
+</main>
+</body>
+</html>

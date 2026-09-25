@@ -1,0 +1,22 @@
+{
+  "id": "fcbf07f3-221b-4615-b993-93cf5d8f6c24",
+  "object": "video",
+  "model": "OpenVDN/vdn-minimax-h3",
+  "status": "queued",
+  "progress": 0,
+  "created_at": 1789741132,
+  "size": "736x1280",
+  "seconds": "10.125",
+  "quality": "standard",
+  "url": null,
+  "remixed_from_video_id": null,
+  "completed_at": null,
+  "expires_at": null,
+  "error": null,
+  "file_path": "/home/raqeeb/code/h3-optimization/vdn-sglang/outputs/fcbf07f3-221b-4615-b993-93cf5d8f6c24.mp4",
+  "file_paths": null,
+  "num_outputs": null,
+  "peak_memory_mb": null,
+  "inference_time_s": null,
+  "action": null
+}

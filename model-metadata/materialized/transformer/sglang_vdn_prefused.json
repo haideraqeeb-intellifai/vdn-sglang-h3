@@ -1,0 +1,90 @@
+{
+  "adapters": [
+    {
+      "adapter_config_sha256": "89e0ff8920b9629b826eb99ab6150cce6924a53aa445186d1b493225fd091b96",
+      "adapter_model_sha256": "58558fef506f88bb41649242de9b9b3a365da806b51b2e96afbbe1625222058a",
+      "alpha": 64.0,
+      "name": "default",
+      "pairs": 208,
+      "path": "stage-dmd-step-250/adapters/default",
+      "rank": 64,
+      "rank_pattern_modules": 0,
+      "scales": [
+        1.0
+      ]
+    },
+    {
+      "adapter_config_sha256": "627968f670747c29cd7a0d3f8c75166e501d70f9e829b5cd3242a8f14cefbc18",
+      "adapter_model_sha256": "24fc93c82fe84dc45d0627f4e72c637bc387d282ba18f60ed3b7f8c81089392c",
+      "alpha": 64.0,
+      "name": "turbo",
+      "pairs": 363,
+      "path": "stage-dmd-step-250/adapters/turbo",
+      "rank": 64,
+      "rank_pattern_modules": 51,
+      "scales": [
+        1.0
+      ]
+    }
+  ],
+  "checkpoint_metadata": {
+    "checkpoint_format_version": 2,
+    "kind": "weights",
+    "metadata": {
+      "audio_shift": 3.0,
+      "fake_rank": 128,
+      "fake_updates_per_step": 3,
+      "fake_warmup_steps": 10,
+      "objective": "dmd2_no_gan",
+      "real_score": "vdn",
+      "stage": "dmd",
+      "step": 250,
+      "student": "stage_b_vdn+external_v4_step600_ema_trainable",
+      "teacher": "vdn_stage_b_step2000",
+      "turbo_num_steps": 8,
+      "video_shift": 12.0
+    },
+    "weights_dtype": "bfloat16"
+  },
+  "linear_branch": {
+    "config": {
+      "config": {
+        "anchor_frames": "both",
+        "enable_softmax_gate": true,
+        "linear_attention": {
+          "a_fp32": true,
+          "bridge": "alpha",
+          "delta_rule": "vdn_solve",
+          "enable_text_state": true,
+          "linear_head_dim": 128,
+          "short_conv": {
+            "targets": [
+              "k",
+              "v"
+            ]
+          }
+        },
+        "softmax_attention": {
+          "chunk": 5,
+          "radius": 1
+        }
+      },
+      "type": "hybrid_attention",
+      "version": 2
+    },
+    "file": "sglang_vdn_linear_branch.safetensors",
+    "sha256": "dec6981c7874f5b3bc92d1a02e256b673a3b3499dc1a124714bb3b19da602855",
+    "tensors": 800
+  },
+  "merge": {
+    "order": [
+      "default",
+      "turbo"
+    ],
+    "pairs_merged": 571,
+    "rule": "W += (alpha / rank) * B @ A, fp32 accumulate, one rounding to the stored dtype",
+    "tensors_touched": 363
+  },
+  "source_model_id": "OpenVDN/vdn-minimax-h3",
+  "vdn_checkpoint": "stage-dmd-step-250"
+}

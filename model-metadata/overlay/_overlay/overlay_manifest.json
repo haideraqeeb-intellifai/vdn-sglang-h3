@@ -1,0 +1,29 @@
+{
+  "source_model_id": "OpenVDN/vdn-minimax-h3",
+  "materializer_version": "v1",
+  "custom_materializer": "_overlay/materialize.py",
+  "source_allow_patterns": [
+    "h3-base/**",
+    "stage-dmd-step-250/**",
+    "*.json",
+    "*.md",
+    "LICENSE"
+  ],
+  "required_source_files": [
+    "h3-base/transformer/config.json",
+    "h3-base/transformer/diffusion_pytorch_model.safetensors.index.json",
+    "h3-base/vae/config.json",
+    "h3-base/vae/diffusion_pytorch_model.safetensors.index.json",
+    "h3-base/audio_vae/config.json",
+    "h3-base/audio_vae/diffusion_pytorch_model.safetensors",
+    "stage-dmd-step-250/linear_branch/config.json",
+    "stage-dmd-step-250/linear_branch/model.safetensors",
+    "stage-dmd-step-250/adapters/default/adapter_spec.json",
+    "stage-dmd-step-250/adapters/default/adapter_model.safetensors",
+    "stage-dmd-step-250/adapters/turbo/adapter_spec.json",
+    "stage-dmd-step-250/adapters/turbo/adapter_model.safetensors"
+  ],
+  "file_mappings": [
+    { "type": "tree", "src": "h3-base/audio_vae", "dst_dir": "audio_vae" }
+  ]
+}

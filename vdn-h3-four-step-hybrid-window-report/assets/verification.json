@@ -1,0 +1,31 @@
+{
+  "warmup": {
+    "complete_decode": true,
+    "width": 736,
+    "height": 1280,
+    "video_frames": 243,
+    "fps": 24,
+    "duration_seconds": 10.125,
+    "audio_sample_rate_hz": 32000,
+    "audio_channels": 2
+  },
+  "measured": {
+    "complete_decode": true,
+    "width": 736,
+    "height": 1280,
+    "video_frames": 243,
+    "fps": 24,
+    "duration_seconds": 10.125,
+    "audio_sample_rate_hz": 32000,
+    "audio_channels": 2
+  },
+  "exact_denoiser_forwards_per_run": 4,
+  "decoded_video_hashes_match": true,
+  "decoded_audio_hashes_match": false,
+  "post_exit_gpu": {
+    "name": "NVIDIA GeForce RTX 5090",
+    "memory_used_mib": 2,
+    "utilization_percent": 0,
+    "compute_processes": []
+  }
+}

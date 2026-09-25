@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "title": "VDN-H3 hybrid-window attention · 4 denoising steps",
+  "model": "OpenVDN/vdn-minimax-h3",
+  "model_revision": "ec875b5bde3832ff72511b079c70ea18b277c339",
+  "overlay_revision": "7de18275dddfe59da36a234e222bcdd274963bc3",
+  "runtime": "SGLang 0.5.20",
+  "hardware": "NVIDIA GeForce RTX 5090 · 32 GB",
+  "attention_backend": "hybrid_window_attn_h3",
+  "sage_attention": false,
+  "requested_quantization": "fp8 (MXFP8 on SM120)",
+  "completed_runtime_precision": "bfloat16",
+  "placement": "layerwise offload: DiT, text encoder, video VAE",
+  "sampling": {
+    "seed": 42,
+    "sigma_grid_points": 5,
+    "denoiser_forwards": 4,
+    "guidance_scale": 1.0,
+    "embedded_guidance_scale": 6.0,
+    "video_flow_shift": 12.0,
+    "audio_flow_shift": 3.0
+  },
+  "output": {
+    "width": 736,
+    "height": 1280,
+    "frames": 243,
+    "fps": 24,
+    "duration_seconds": 10.125,
+    "video_codec": "h264",
+    "audio_codec": "aac",
+    "audio_sample_rate_hz": 32000,
+    "audio_channels": 2
+  },
+  "timings_seconds": {
+    "warmup": {
+      "server_end_to_end": 158.71683295210823,
+      "client_end_to_end": 160.50388145446777,
+      "text_encoding": 2.0179,
+      "denoising": 128.8298,
+      "decoding_and_output": 27.4671
+    },
+    "measured": {
+      "server_end_to_end": 128.43935186928138,
+      "client_end_to_end": 130.24905610084534,
+      "text_encoding": 0.8075,
+      "denoising": 103.9881,
+      "decoding_and_output": 23.0856
+    }
+  },
+  "peak_memory_mb": {
+    "warmup": 23220,
+    "measured": 27740
+  },
+  "hashes": {
+    "prompt_sha256": "3d3077f76c422a2593e079f5f7b1df8c69395b4496069328a9761eaecc223ba7",
+    "warmup_mp4_sha256": "c08ad45a1f59dbb4e68936bd7e3b3f4584cd27c67b416955e94088bba3224d64",
+    "measured_mp4_sha256": "17882d9db644f74d1e4ea49e6ca102283cb6b2561fe8c46647804111bd9b17b7",
+    "decoded_video_sha256": "eeca340557e02128e0e05b950ac32d89a219c2685188ecf054ab2bf9ec21f832",
+    "warmup_decoded_audio_sha256": "680a6de988121157cb9dd72c9603af12432bd967b8d101659699694f457ed348",
+    "measured_decoded_audio_sha256": "24450ac8fbc6f10c9b134a1a5db30dafb9b8e628cfb2c51638bfe10566845712"
+  },
+  "limitations": [
+    "The released VDN-H3 checkpoint is trained and validated for eight denoiser evaluations; four is an out-of-distribution experiment.",
+    "The requested FP8 path could not complete on one 32 GB RTX 5090 because online MXFP8 conversion staged the full transformer before layerwise offload.",
+    "Only one warm-up and one measured sample were collected, so timing variance is unknown."
+  ]
+}
