@@ -13,13 +13,13 @@
     },
     {
       "path": "PUBLISHING_LOG.md",
-      "size_bytes": 2467,
-      "sha256": "0c634642ec892160d7eb7e348764789d1c34237107795c4f4a1cef07510696ad"
+      "size_bytes": 2703,
+      "sha256": "b356bde3f74c7b8cba02798be568ff9864c7505cf96f51284cb3e2ecdfe2581f"
     },
     {
       "path": "README.md",
-      "size_bytes": 14389,
-      "sha256": "a151d01fbd8bca6e1009b35ce5d95dbb1b5f7d6e166e0dc9b36f29c6aa393805"
+      "size_bytes": 14713,
+      "sha256": "152fd9e6c32fc6a71e35c2e9f08ff9415c6cbed8daebda23fbcf03765537b883"
     },
     {
       "path": "prompt.txt",

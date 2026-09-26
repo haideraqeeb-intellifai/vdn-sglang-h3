@@ -5,6 +5,12 @@ This repository preserves the VDN-H3 configuration that generated the saved
 including client polling and download), using BF16, hybrid-window attention,
 four denoiser forwards, and layerwise offload on one RTX 5090 (32 GB).
 
+**Benchmark date: September 18, 2026 (UTC).** The warm-up ran from
+14:15:42 to 14:18:21 UTC; the measured request ran from 14:18:52 to
+14:21:02 UTC. These are the saved job creation/completion timestamps in
+`runs/warmup/status.json` and `runs/measured/status.json`. The measured
+server generation time was 128.439 seconds.
+
 - [Measured video](runs/measured/output.mp4) and [warm-up video](runs/warmup/output.mp4)
 - [Measured status and timing evidence](runs/measured/status.json)
 - [Self-contained HTML report](vdn-h3-four-step-hybrid-window-report/index.html)

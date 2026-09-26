@@ -1,8 +1,11 @@
 # Publication log
 
-## 2026-09-25 21:38:53 UTC — initial public publication
+## 2026-09-25 21:38:53 UTC — initial publication package prepared
 
 Target: https://github.com/haideraqeeb-intellifai/vdn-sglang-h3 (public, main).
+This entry records package preparation; the public upload remains pending.
+Benchmark performed September 18, 2026: warm-up 14:15:42–14:18:21 UTC;
+measured request 14:18:52–14:21:02 UTC (128.439 seconds server generation).
 Source: local `vdn-sglang` workspace; no root Git revision existed.
 The nested report source revision is
 `c926fb9307e612e3fb49505e28c6ec1ae900dae0`.
