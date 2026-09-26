@@ -1,9 +1,19 @@
 # Publication log
 
+## 2026-09-26 09:53:39 UTC — public upload verified
+
+Published to https://github.com/haideraqeeb-intellifai/vdn-sglang-h3 on `main`.
+Verified public visibility, owner `haideraqeeb-intellifai`, and all 108 remote
+file hashes and sizes against the local package. Initial uploaded revision:
+`16a767f7804d0d316e4b6c047ab481ec76f9dc9c`.
+The README includes the September 18, 2026 benchmark date and UTC run times.
+The inventory and exclusions below apply; no model weights or LFS objects
+were uploaded. This follow-up updates only the publication log and inventory.
+
 ## 2026-09-25 21:38:53 UTC — initial publication package prepared
 
 Target: https://github.com/haideraqeeb-intellifai/vdn-sglang-h3 (public, main).
-This entry records package preparation; the public upload remains pending.
+This entry records package preparation; publication was pending at that time.
 Benchmark performed September 18, 2026: warm-up 14:15:42–14:18:21 UTC;
 measured request 14:18:52–14:21:02 UTC (128.439 seconds server generation).
 Source: local `vdn-sglang` workspace; no root Git revision existed.
